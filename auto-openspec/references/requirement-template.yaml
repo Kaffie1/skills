@@ -1,0 +1,39 @@
+# Multi-requirement input template for auto-openspec.
+# Fill one or more items under `requirements`.
+# Each item represents one independent requirement that can be normalized and sent into `/opsx:propose`.
+# Field meaning:
+# - id: stable identifier for one requirement item
+# - title: short requirement name
+# - summary: one-sentence restatement of the user request
+# - goal: the core capability or outcome to add or change
+# - protocol: relevant protocol, workflow, or contract, such as HTTP, MCP, OAuth, or approval-flow
+# - context.product: product, service, or business area where this applies
+# - context.module: specific module, subsystem, or component involved
+# - acceptance: success conditions for a first-pass spec
+# Minimum start rule:
+# Start auto-openspec when these fields are meaningfully filled:
+# `title`, `goal`, `protocol`, and `context.product` or `context.module`.
+# If required fields are missing, ask one focused question that collects all missing information at once.
+
+requirements:
+  - id: requirement-1
+    title: ""
+    summary: ""
+    goal: ""
+    protocol: ""
+    context:
+      product: ""
+      module: ""
+    acceptance:
+      - ""
+
+  - id: requirement-2
+    title: ""
+    summary: ""
+    goal: ""
+    protocol: ""
+    context:
+      product: ""
+      module: ""
+    acceptance:
+      - ""

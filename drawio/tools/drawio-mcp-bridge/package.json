@@ -1,0 +1,9 @@
+{
+  "name": "drawio-mcp-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "bin": {
+    "drawio-mcp-bridge": "./drawio-mcp-bridge.js"
+  }
+}

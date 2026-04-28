@@ -1,0 +1,4 @@
+interface:
+  display_name: "Auto Spec"
+  short_description: "OpenSpec full lifecycle"
+  default_prompt: "Use $auto-openspec to regenerate requirement-template.yaml, run propose/apply/archive, apply code-style.md, and archive only after acceptance passes."
