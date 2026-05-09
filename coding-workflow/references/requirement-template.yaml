@@ -1,0 +1,37 @@
+# Reusable requirement template for new OpenSpec changes.
+# Copy this file or overwrite the values below for each new feature request.
+
+title: "<short feature title>"
+
+goal: >
+  <one-paragraph summary of the user outcome this change should achieve>
+
+scope:
+  - "<deliverable 1>"
+  - "<deliverable 2>"
+
+constraints:
+  - "<technical, environment, compatibility, or process constraint>"
+  - "<another hard constraint>"
+
+acceptance_criteria:
+  - "<observable outcome that proves the feature is done>"
+  - "<verification condition, test result, or behavior expectation>"
+
+assumptions:
+  - "<assumption that is currently believed true>"
+  - "<another assumption that may need confirmation later>"
+
+environment:
+  development: "<host | docker:<container-name> | remote>"
+  runtime: "<where the feature actually runs>"
+  verification: "<where commands and tests must be executed>"
+
+interfaces:
+  inputs:
+    - "<topic/api/file/command input>"
+  outputs:
+    - "<topic/api/file/output artifact>"
+
+notes:
+  - "<optional context, risks, or follow-up reminders>"

@@ -1,0 +1,53 @@
+{
+  "name": "spec-driven",
+  "version": 1,
+  "description": "Default OpenSpec workflow - proposal -> specs -> design -> tasks",
+  "artifacts": [
+    {
+      "id": "proposal",
+      "generates": "proposal.md",
+      "description": "Initial proposal document outlining the change",
+      "template": "proposal.md",
+      "instruction": "Create the proposal document that establishes WHY this change is needed.\n\nSections:\n- **Why**: 1-2 sentences on the problem or opportunity. What problem does this solve? Why now?\n- **What Changes**: Bullet list of changes. Be specific about new capabilities, modifications, or removals. Mark breaking changes with **BREAKING**.\n- **Capabilities**: Identify which specs will be created or modified:\n  - **New Capabilities**: List capabilities being introduced. Each becomes a new `specs/<name>/spec.md`. Use kebab-case names.\n  - **Modified Capabilities**: List existing capabilities whose REQUIREMENTS are changing.\n- **Impact**: Affected code, APIs, dependencies, or systems.\n\nKeep it concise and focus on the why rather than implementation details.",
+      "requires": []
+    },
+    {
+      "id": "specs",
+      "generates": "specs/**/*.md",
+      "description": "Detailed specifications for the change",
+      "template": "spec.md",
+      "instruction": "Create specification files that define WHAT the system should do.\n\nCreate one spec file per capability listed in the proposal's Capabilities section.\n\nDelta operations:\n- **ADDED Requirements**\n- **MODIFIED Requirements**\n- **REMOVED Requirements**\n- **RENAMED Requirements**\n\nFormat requirements:\n- Each requirement: `### Requirement: <name>`\n- Use SHALL/MUST for normative requirements\n- Each scenario: `#### Scenario: <name>`\n- Every requirement MUST have at least one scenario.",
+      "requires": [
+        "proposal"
+      ]
+    },
+    {
+      "id": "design",
+      "generates": "design.md",
+      "description": "Technical design document with implementation details",
+      "template": "design.md",
+      "instruction": "Create the design document that explains HOW to implement the change.\n\nSections:\n- **Context**\n- **Goals / Non-Goals**\n- **Decisions**\n- **Risks / Trade-offs**\n- **Migration Plan**\n- **Open Questions**\n\nFocus on architecture and approach, not line-by-line implementation.",
+      "requires": [
+        "proposal"
+      ]
+    },
+    {
+      "id": "tasks",
+      "generates": "tasks.md",
+      "description": "Implementation checklist with trackable tasks",
+      "template": "tasks.md",
+      "instruction": "Create the task list that breaks down the implementation work.\n\nRules:\n- Group related tasks under numbered headings\n- Each task MUST be a checkbox using `- [ ] X.Y Task description`\n- Tasks should be small enough to complete in one session\n- Order tasks by dependency",
+      "requires": [
+        "specs",
+        "design"
+      ]
+    }
+  ],
+  "apply": {
+    "requires": [
+      "tasks"
+    ],
+    "tracks": "tasks.md",
+    "instruction": "Read context files, work through pending tasks, and mark tasks complete as you go."
+  }
+}
